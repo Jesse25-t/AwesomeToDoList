@@ -2,24 +2,37 @@ import React from "react";
 import { StyleSheet, ScrollView, View, Pressable, Text, TextInput, Button } from "react-native";
 
 export default function ToDoList(props) {
-    const styles = StyleSheet.create({
-        task: {
-          padding: 10,
-          borderBottomWidth: 1,
-          borderColor: '#ccc',
-        },
-        completed: {
-          backgroundColor: '#e0e0e0',
-        },
-        taskText: {
-          fontSize: 16,
-        }
-      });  
+  const styles = StyleSheet.create({
+    task: {
+      padding: 10,
+      borderBottomWidth: 1,
+      borderColor: '#ccc',
+    },
+    completed: {
+      backgroundColor: '#e0e0e0',
+    },
+    taskText: {
+      fontSize: 16,
+    },
+    form: {
+      padding: 10,
+      borderTopWidth: 1,
+      borderColor: '#ccc',
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    input: {
+      flex: 1,
+      marginRight: 10,
+      padding: 5,
+      borderWidth: 1,
+      borderColor: '#ccc',
+    },
+  });
 
-    return(
-        // The empty tags are called FRAGMENTS
-        <>
-         <ScrollView>
+  return (
+    <>
+      <ScrollView>
         <Pressable>
           <View style={[styles.task, styles.completed]}>
             <Text style={styles.taskText}>Do laundry</Text>
@@ -41,9 +54,8 @@ export default function ToDoList(props) {
           style={styles.input}
           placeholder="Add a new task..."
         />
-        <Button title="Add" />
+        <Button title="Add" onPress={() => { /* Add your onPress action here */ }} />
       </View>
-        </>
-    );
+    </>
+  );
 }
-
