@@ -10,9 +10,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "install": "^0.13.0",
     "react": "18.2.0",
     "react-native": "0.73.2",
-    "style-components": "^0.1.0"
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

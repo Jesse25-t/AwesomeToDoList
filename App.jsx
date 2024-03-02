@@ -1,17 +1,10 @@
 import ToDoList from './components/ToDoList';
 import React from 'react';
+import styled from 'styled-components/native'
 import { useState } from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
 
-function App() {
-  const [tasks] = useState(
-    [
-      'Do laundry',
-      'Go to gym',
-      'Walk dog'
-    ]
-  );
-  // styles
+const App = () => {
+  const [tasks] = useState(['Do laundry', 'Go to gym', 'Walk dog']);
 
   return (
     <Wrapper>
@@ -23,7 +16,7 @@ function App() {
       </Content>
     </Wrapper>
   );
-}
+};
 
 export default App;
 
