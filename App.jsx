@@ -1,38 +1,55 @@
+import React, {useState} from 'react';
+import {SafeAreaView} from 'react-native';
 import ToDoList from './components/ToDoList';
-import React from 'react';
-import styled from 'styled-components/native'
-import { useState } from 'react';
+import ToDoForm from './components/ToDoForm';
+import { StyleSheet, ScrollView, View, Pressable, Text, TextInput, Button } from "react-native";
+
 
 const App = () => {
-  const [tasks] = useState(['Do laundry', 'Go to gym', 'Walk dog']);
+  const [tasks, setTasks] = useState(['Do laundry', 'Go to gym', 'Walk dog']);
+  const handleAddTask = task => {
+    setTasks([...tasks, task]);
 
+    // tasks.push(task);
+    // setTasks(tasks);
+    // setTasks((prev) => [...prev, task]);
+    // setTasks(tasks.concat(task));
+  };
   return (
-    <Wrapper>
-      <Content>
-        <Header>To do list</Header>
-        {tasks.map(task => {
-          return <ToDoList task={task} />;
-        })}
-      </Content>
-    </Wrapper>
+    <SafeAreaView>
+      <ToDoList tasks={tasks}/>
+      <ToDoForm addTask={handleAddTask}  />
+    </SafeAreaView>
   );
 };
 
 export default App;
 
-const Wrapper = styled.View`
-  background-color: #f7ced2;
-  flex: 1;
-`;
-
-const Content = styled.View`
-  margin-top: 100px;
-  align-items: center;
-`;
-
-const Header = styled.Text`
-  margin-top: 10px;
-  color: #000;
-  font-size: 36px;
-`;
-
+const styles = StyleSheet.create({
+  task: {
+    padding: 10,
+    borderBottomWidth: 1,
+    borderColor: '#ccc',
+  },
+  completed: {
+    backgroundColor: '#e0e0e0',
+  },
+  taskText: {
+    fontSize: 16,
+  },
+  form: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginHorizontal: 20,
+    marginTop: 20,
+  },
+  input: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    marginRight: 10,
+  },
+});
