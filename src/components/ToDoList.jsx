@@ -1,4 +1,5 @@
-import React from 'react';
+import react, { useState, useEffect } from 'react';
+
 import {
   StyleSheet,
   ScrollView,
