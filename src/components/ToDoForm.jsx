@@ -1,11 +1,20 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import tasksData from '../data/tasks.json';
 import { StyleSheet, ScrollView, View, Pressable, Text, TextInput, Button } from "react-native";
 
 export default function ToDoForm(props) {
     const [input, setInput] = useState("");
     const { addTask } = props;
+    const [task, setTask] = useState("");
     const handleChangeText = (text) => setInput(text);
     const handlePress = (text) => addTask(input);
+
+    useEffect(() => {
+      const tasks = tasksData.map((task) => task)
+        setTask(tasks);
+    }, []);
+
+    const handleAddTask = (task) => addTask(task);
   return (
     <>
         <View style={styles.form}> 
